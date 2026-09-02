@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<robot name="arm">
+
+  <!-- LINKS -->
+
+  <link name="world"/>
+
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792 0.820 0.933 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792 0.820 0.933 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792 0.820 0.933 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_3">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792 0.820 0.933 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_4">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792 0.820 0.933 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://arm_description/meshes/link_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+
+  <!-- JOINTS -->
+
+  <joint name="virtual_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin rpy="0 0 0" xyz="0 -0.019611 0.05134"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708"
+           effort="30.0" velocity="10.0"/>
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0485"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5708" upper="1.5708"
+           effort="30.0" velocity="10.0"/>
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0986"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5708" upper="1.5708"
+           effort="30.0" velocity="10.0"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0986"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5708" upper="1.5708"
+           effort="30.0" velocity="10.0"/>
+  </joint>
+
+
+
+
+
+</robot>
